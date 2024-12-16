@@ -1,0 +1,21 @@
+The issue arises from the order of operations within the `calc()` function and the units used. To correct this, ensure the units are consistent or explicitly handle conversions.  Instead of `width: calc(50% - 10px);`, a better approach might be to use a variable or pre-calculate the value:
+
+```css
+/* bugSolution.css */
+:root {
+  --offset: 10px;
+}
+
+.element {
+  width: calc(50% - var(--offset));
+}
+
+/* or */
+
+.element {
+  width: calc(50% - 10px);
+  /* Ensure your 10px is consistent with a 50% calculation */
+}
+```
+
+This revised approach ensures correct calculation by properly handling the subtraction of pixels from a percentage value.
